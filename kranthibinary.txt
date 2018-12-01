@@ -1,0 +1,164 @@
+#include<iostream>
+using namespace std;
+
+class node
+{	public:
+	int data;
+	node*left;
+	node*right;
+
+};
+
+class binary
+{
+	node*root;
+	public:
+	void insert();
+	void inorder(node*);
+	void inorder1();
+	binary()
+	{
+		root = NULL;
+	
+
+	}
+};
+
+void binary::insert()
+{
+	node*tmp;
+	tmp = new node;
+	cout<<"enter the data";
+	cin>>tmp->data;
+	tmp->left = NULL;
+	tmp->right = NULL;
+	
+	if(root ==NULL)
+	{
+		
+		root=tmp ;
+
+	}
+	else
+	{
+
+		if(root->data <tmp->data)
+		{
+
+			node*t ;
+			t = root;
+			while(t->right!=NULL)
+			{
+
+
+				t =t->right;
+
+			}
+
+			t->right = tmp;
+			tmp->right = NULL;
+			tmp->left = NULL;
+		
+		}
+		else
+		if(root->data> tmp->data)
+		{
+
+			node*t = root;
+			while(t->left!=NULL)
+			{
+
+
+				t = t->left;
+
+
+			}
+			t->left = tmp;
+			tmp->right = NULL;
+			tmp->left = NULL;
+
+	
+	
+		}
+
+	}	
+
+
+}
+
+void binary::inorder(class node*root )
+{
+
+
+	if(root!=NULL)
+	{
+
+		inorder(root->left);
+		cout<<root->data;
+		inorder(root->right);
+
+
+	}
+
+
+	
+}
+
+void binary::inorder1()
+{
+
+
+	inorder(root);
+
+
+
+}
+int main()
+{
+
+	binary a;
+	int ch;
+	while(1)
+	{
+		cout<<"1.insert";
+		cout<<"2.inorder";
+		cout<<"3.preorder";
+		cout<<"4.postorder";
+		cout<<"2.enter your choice";
+		cin>>ch;
+		
+		switch(ch)
+		{
+
+
+			case 1 : a.insert();
+					break;
+			
+			case 2 : a.inorder1();
+					break;
+
+		
+	
+
+
+
+		}
+
+
+	}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
